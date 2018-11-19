@@ -7,16 +7,9 @@ group = 'com.github.thefuntasty'
 android {
     compileSdkVersion 28
 
-
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
-    }
-
-    buildTypes {
-        release {
-        }
     }
 
     sourceSets {
@@ -24,30 +17,13 @@ android {
             java.srcDirs = ['src/main/kotlin']
         }
     }
-
-    detekt {
-        version = "$detekt"
-        profile("main") {
-            input = "$projectDir/src/main/kotlin"
-            config = "$projectDir/detekt.yml"
-        }
-    }
-
-    ktlint {
-        version = "$ktlintExtension"
-        ignoreFailures = false
-        android = true
-        outputToConsole = true
-        reporters = ["PLAIN", "CHECKSTYLE"]
-    }
-
 }
 
 dependencies {
-    implementation "androidx.appcompat:appcompat:1.0.2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$support_library"
     implementation "androidx.palette:palette:1.0.0"
     implementation "androidx.core:core-ktx:1.0.1"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 task sourcesJar(type: Jar) {
