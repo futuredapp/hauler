@@ -3,6 +3,7 @@
 Hauler is a library containing custom layout which enables to easily create swipe to dismiss activity.
 Implementation is based on code in project  [Plaid](https://github.com/nickbutcher/plaid)
 
+![Alt text](https://github.com/thefuntasty/hauler/blob/master/images/20181119_134036.gif)
 
 # How to use 
  - Create custom style for activity which is meant to be dismissed eg:
