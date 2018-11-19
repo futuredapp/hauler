@@ -25,7 +25,7 @@ android {
     }
 
     detekt {
-        version = '1.0.0.RC6-3'
+        version = "$detekt"
         profile("main") {
             input = "$projectDir/src/main/kotlin"
             config = "$projectDir/detekt.yml"
@@ -33,7 +33,7 @@ android {
     }
 
     ktlint {
-        version = "0.15.0"
+        version = "$ktlintExtension"
         ignoreFailures = false
         android = true
         outputToConsole = true
