@@ -14,10 +14,6 @@ android {
         versionName "1.0.0"
     }
 
-    buildTypes {
-        release {}
-    }
-
     sourceSets {
         main {
             java.srcDirs = ['src/main/kotlin']
