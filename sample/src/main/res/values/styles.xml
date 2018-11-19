@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.Dragable" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Draggable" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsFloating">false</item>

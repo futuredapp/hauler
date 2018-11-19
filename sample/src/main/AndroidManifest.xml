@@ -3,12 +3,13 @@
           package="com.thefuntasty.haulersample">
 
     <application
-            android:allowBackup="true"
+            android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
         <activity android:name="com.thefuntasty.haulersample.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -16,9 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.thefuntasty.haulersample.draggable.DraggableActivity"
-         android:theme="@style/AppTheme.Dragable">
-        </activity>
-    </application>
 
+        <activity
+                android:name="com.thefuntasty.haulersample.draggable.DraggableActivity"
+                android:theme="@style/AppTheme.Draggable"/>
+
+    </application>
 </manifest>
