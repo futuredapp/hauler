@@ -19,6 +19,28 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/kotlin']
+        }
+    }
+
+    detekt {
+        version = '1.0.0.RC6-3'
+        profile("main") {
+            input = "$projectDir/src/main/kotlin"
+            config = "$projectDir/detekt.yml"
+        }
+    }
+
+    ktlint {
+        version = "0.15.0"
+        ignoreFailures = false
+        android = true
+        outputToConsole = true
+        reporters = ["PLAIN", "CHECKSTYLE"]
+    }
+
 }
 
 dependencies {

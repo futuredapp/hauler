@@ -19,7 +19,7 @@ class DraggableActivity : AppCompatActivity() {
         setContentView(R.layout.activity_daraggable)
         elasticDragDismissFrameLayout.apply {
             isDragEnabled(true)
-            setOnDragDismissedListener(object: ElasticDragDismissFrameLayout.OnDismissListener{
+            setOnDragDismissedListener(object : ElasticDragDismissFrameLayout.OnDismissListener {
                 override fun dismiss() {
                     this@DraggableActivity.finish()
                 }

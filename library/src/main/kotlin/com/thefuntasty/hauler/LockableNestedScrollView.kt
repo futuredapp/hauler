@@ -30,4 +30,3 @@ class LockableNestedScrollView @JvmOverloads constructor(
         return isScrollable && super.onInterceptTouchEvent(ev)
     }
 }
-
