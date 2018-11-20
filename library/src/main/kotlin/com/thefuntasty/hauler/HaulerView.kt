@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.content.withStyledAttributes
 import androidx.core.view.animation.PathInterpolatorCompat
 
 class HaulerView @JvmOverloads constructor(
@@ -37,34 +38,21 @@ class HaulerView @JvmOverloads constructor(
             systemChromeFader = SystemChromeFader(it)
         }
 
-        val attributesArray = getContext().obtainStyledAttributes(
-            attrs, R.styleable.HaulerView, 0, 0
-        )
+        getContext().withStyledAttributes(set = attrs, attrs = R.styleable.HaulerView) {
+            if (hasValue(R.styleable.HaulerView_dragDismissDistance)) {
+                dragDismissDistance = getDimensionPixelSize(R.styleable.HaulerView_dragDismissDistance, 0).toFloat()
+            } else if (hasValue(R.styleable.HaulerView_dragDismissFraction)) {
+                dragDismissFraction = getFloat(R.styleable.HaulerView_dragDismissFraction, dragDismissFraction)
+            }
 
-        if (attributesArray.hasValue(R.styleable.HaulerView_dragDismissDistance)) {
-            dragDismissDistance = attributesArray.getDimensionPixelSize(
-                R.styleable.HaulerView_dragDismissDistance,
-                0
-            ).toFloat()
-        } else if (attributesArray.hasValue(R.styleable.HaulerView_dragDismissFraction)) {
-            dragDismissFraction = attributesArray.getFloat(
-                R.styleable.HaulerView_dragDismissFraction,
-                dragDismissFraction
-            )
+            if (hasValue(R.styleable.HaulerView_dragDismissScale)) {
+                dragDismissScale = getFloat(R.styleable.HaulerView_dragDismissScale, dragDismissScale)
+            }
+
+            if (hasValue(R.styleable.HaulerView_dragElasticity)) {
+                dragElasticity = getFloat(R.styleable.HaulerView_dragElasticity, dragElasticity)
+            }
         }
-        if (attributesArray.hasValue(R.styleable.HaulerView_dragDismissScale)) {
-            dragDismissScale = attributesArray.getFloat(
-                R.styleable.HaulerView_dragDismissScale,
-                dragDismissScale
-            )
-        }
-        if (attributesArray.hasValue(R.styleable.HaulerView_dragElasticity)) {
-            dragElasticity = attributesArray.getFloat(
-                R.styleable.HaulerView_dragElasticity,
-                dragElasticity
-            )
-        }
-        attributesArray.recycle()
 
         shouldScale = dragDismissScale != 1f
     }
