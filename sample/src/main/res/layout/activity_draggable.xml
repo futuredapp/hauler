@@ -2,25 +2,20 @@
 <com.thefuntasty.hauler.ElasticDragDismissFrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".draggable.DraggableActivity"
+        tools:context=".draggable.CommonUsageActivity"
         android:id="@+id/elasticDragDismissFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
-        app:dragDismissDistance="112dp"
-        app:dragDismissScale="0.95">
+        android:background="@android:color/white">
 
-
-    <com.thefuntasty.hauler.LockableNestedScrollView
-            android:id="@+id/lockable_scroll_view"
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true">
 
         <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -29,8 +24,6 @@
                     android:text="@string/swipe_to_dismiss"/>
 
         </FrameLayout>
-
-    </com.thefuntasty.hauler.LockableNestedScrollView>
-
+    </androidx.core.widget.NestedScrollView>
 </com.thefuntasty.hauler.ElasticDragDismissFrameLayout>
 

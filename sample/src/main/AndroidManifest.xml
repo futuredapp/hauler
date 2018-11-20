@@ -19,7 +19,7 @@
         </activity>
 
         <activity
-                android:name="com.thefuntasty.haulersample.draggable.DraggableActivity"
+                android:name="com.thefuntasty.haulersample.draggable.CommonUsageActivity"
                 android:theme="@style/AppTheme.Draggable"/>
 
     </application>

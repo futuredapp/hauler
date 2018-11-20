@@ -17,7 +17,7 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
     // configurable attributes
     private var dragDismissDistance = pxFromDp(context, 100f)
     private var dragDismissFraction = -1f
-    private var dragDismissScale = 0.9f
+    private var dragDismissScale = 0.95f
     private var shouldScale = true
     private var dragElasticity = 0.8f
 
@@ -27,7 +27,7 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
     private var draggingUp = false
     private var mLastActionEvent: Int = 0
 
-    private var onDragDismissed: OnDismissListener? = null
+    private var onDragDismissed: (() -> Unit)? = null
     private var systemChromeFader: SystemChromeFader? = null
 
     private var isDragEnabled = true
@@ -67,10 +67,6 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
         attributesArray.recycle()
 
         shouldScale = dragDismissScale != 1f
-    }
-
-    fun isDragEnabled(isDragEnabled: Boolean) {
-        this.isDragEnabled = isDragEnabled
     }
 
     override fun onStartNestedScroll(child: View, target: View, nestedScrollAxes: Int): Boolean =
@@ -139,8 +135,19 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
         }
     }
 
-    fun setOnDragDismissedListener(listener: OnDismissListener) {
-        onDragDismissed = listener
+    /**
+     * Set lambda reference which is called when dismiss gesture has
+     * been performed
+     */
+    fun setOnDragDismissedListener(onDragDismissedListener: () -> Unit) {
+        onDragDismissed = onDragDismissedListener
+    }
+
+    /**
+     * Set if drag gesture is enabled
+     */
+    fun isDragEnabled(isDragEnabled: Boolean) {
+        this.isDragEnabled = isDragEnabled
     }
 
     private fun dragScale(scroll: Int) {
@@ -202,10 +209,6 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
 
     private fun dispatchDismissCallback() {
         systemChromeFader?.onDismiss()
-        onDragDismissed?.dismiss()
-    }
-
-    interface OnDismissListener {
-        fun dismiss()
+        onDragDismissed?.invoke()
     }
 }
