@@ -19,7 +19,7 @@
         </activity>
 
         <activity
-                android:name=".draggable.CommonUsageActivity"
+                android:name=".draggable.SimpleUsageActivity"
                 android:theme="@style/AppTheme.Draggable"/>
 
         <activity
