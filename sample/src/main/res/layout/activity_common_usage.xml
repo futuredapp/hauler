@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         tools:context=".draggable.CommonUsageActivity"
-        android:id="@+id/haulerView"
+        android:id="@+id/commonHaulerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white">

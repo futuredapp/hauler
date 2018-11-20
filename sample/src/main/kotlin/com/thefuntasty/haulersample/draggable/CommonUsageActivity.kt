@@ -17,7 +17,7 @@ class CommonUsageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_common_usage)
 
-        haulerView.setOnDragDismissedListener {
+        commonHaulerView.setOnDragDismissedListener {
             finish()
         }
     }
