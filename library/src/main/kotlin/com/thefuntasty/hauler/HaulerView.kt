@@ -40,21 +40,20 @@ class HaulerView @JvmOverloads constructor(
         }
 
         getContext().withStyledAttributes(set = attrs, attrs = R.styleable.HaulerView) {
-            if (hasValue(R.styleable.HaulerView_dragDismissDistance)) {
+            val distanceAvailable = hasValue(R.styleable.HaulerView_dragDismissDistance)
+            val dismissFractionAvailable = hasValue(R.styleable.HaulerView_dragDismissFraction)
+
+            if (distanceAvailable && dismissFractionAvailable) {
+                throw IllegalStateException("Do not specify both dragDismissDistance and dragDismissFraction. Choose one of them.")
+            } else if (distanceAvailable) {
                 dragDismissDistance = getDimensionPixelSize(R.styleable.HaulerView_dragDismissDistance, 0).toFloat()
-            } else if (hasValue(R.styleable.HaulerView_dragDismissFraction)) {
+            } else if (dismissFractionAvailable) {
                 dragDismissFraction = getFloat(R.styleable.HaulerView_dragDismissFraction, dragDismissFraction)
             }
 
-            if (hasValue(R.styleable.HaulerView_dragDismissScale)) {
-                dragDismissScale = getFloat(R.styleable.HaulerView_dragDismissScale, dragDismissScale)
-            }
-
-            if (hasValue(R.styleable.HaulerView_dragElasticity)) {
-                dragElasticity = getFloat(R.styleable.HaulerView_dragElasticity, dragElasticity)
-            }
+            dragDismissScale = getFloat(R.styleable.HaulerView_dragDismissScale, dragDismissScale)
+            dragElasticity = getFloat(R.styleable.HaulerView_dragElasticity, dragElasticity)
         }
-
 
         shouldScale = dragDismissScale != 1f
     }
@@ -136,7 +135,7 @@ class HaulerView @JvmOverloads constructor(
     /**
      * Set if drag gesture is enabled
      */
-    fun isDragEnabled(isDragEnabled: Boolean) {
+    fun setDragEnabled(isDragEnabled: Boolean) {
         this.isDragEnabled = isDragEnabled
     }
 
