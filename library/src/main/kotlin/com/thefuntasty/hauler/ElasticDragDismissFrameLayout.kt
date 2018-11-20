@@ -15,10 +15,10 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     // configurable attributes
-    private var dragDismissDistance = java.lang.Float.MAX_VALUE
+    private var dragDismissDistance = pxFromDp(context, 100f)
     private var dragDismissFraction = -1f
-    private var dragDismissScale = 1f
-    private var shouldScale = false
+    private var dragDismissScale = 0.9f
+    private var shouldScale = true
     private var dragElasticity = 0.8f
 
     // state
@@ -43,21 +43,20 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
 
         if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissDistance)) {
             dragDismissDistance = attributesArray.getDimensionPixelSize(
-                R.styleable
-                    .ElasticDragDismissFrameLayout_dragDismissDistance, 0
+                R.styleable.ElasticDragDismissFrameLayout_dragDismissDistance,
+                0
             ).toFloat()
         } else if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissFraction)) {
             dragDismissFraction = attributesArray.getFloat(
-                R.styleable
-                    .ElasticDragDismissFrameLayout_dragDismissFraction, dragDismissFraction
+                R.styleable.ElasticDragDismissFrameLayout_dragDismissFraction,
+                dragDismissFraction
             )
         }
         if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissScale)) {
             dragDismissScale = attributesArray.getFloat(
-                R.styleable
-                    .ElasticDragDismissFrameLayout_dragDismissScale, dragDismissScale
+                R.styleable.ElasticDragDismissFrameLayout_dragDismissScale,
+                dragDismissScale
             )
-            shouldScale = dragDismissScale != 1f
         }
         if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragElasticity)) {
             dragElasticity = attributesArray.getFloat(
@@ -66,6 +65,8 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
             )
         }
         attributesArray.recycle()
+
+        shouldScale = dragDismissScale != 1f
     }
 
     fun isDragEnabled(isDragEnabled: Boolean) {
