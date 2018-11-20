@@ -14,5 +14,6 @@ class MainActivity : AppCompatActivity() {
         start_activity_button.setOnClickListener {
             startActivity(CommonUsageActivity.getStartIntent(this))
         }
+
     }
 }

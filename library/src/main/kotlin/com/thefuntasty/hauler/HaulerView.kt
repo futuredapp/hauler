@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.animation.PathInterpolatorCompat
 
-class ElasticDragDismissFrameLayout @JvmOverloads constructor(
+class HaulerView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -38,29 +38,29 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
         }
 
         val attributesArray = getContext().obtainStyledAttributes(
-            attrs, R.styleable.ElasticDragDismissFrameLayout, 0, 0
+            attrs, R.styleable.HaulerView, 0, 0
         )
 
-        if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissDistance)) {
+        if (attributesArray.hasValue(R.styleable.HaulerView_dragDismissDistance)) {
             dragDismissDistance = attributesArray.getDimensionPixelSize(
-                R.styleable.ElasticDragDismissFrameLayout_dragDismissDistance,
+                R.styleable.HaulerView_dragDismissDistance,
                 0
             ).toFloat()
-        } else if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissFraction)) {
+        } else if (attributesArray.hasValue(R.styleable.HaulerView_dragDismissFraction)) {
             dragDismissFraction = attributesArray.getFloat(
-                R.styleable.ElasticDragDismissFrameLayout_dragDismissFraction,
+                R.styleable.HaulerView_dragDismissFraction,
                 dragDismissFraction
             )
         }
-        if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissScale)) {
+        if (attributesArray.hasValue(R.styleable.HaulerView_dragDismissScale)) {
             dragDismissScale = attributesArray.getFloat(
-                R.styleable.ElasticDragDismissFrameLayout_dragDismissScale,
+                R.styleable.HaulerView_dragDismissScale,
                 dragDismissScale
             )
         }
-        if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragElasticity)) {
+        if (attributesArray.hasValue(R.styleable.HaulerView_dragElasticity)) {
             dragElasticity = attributesArray.getFloat(
-                R.styleable.ElasticDragDismissFrameLayout_dragElasticity,
+                R.styleable.HaulerView_dragElasticity,
                 dragElasticity
             )
         }

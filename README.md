@@ -9,7 +9,7 @@ Implementation is based on code in project  [Plaid](https://github.com/nickbutch
  - Create custom style for activity which is meant to be dismissed eg:
 
  ```xml
-<style name="AppTheme.Dragable" parent="Theme.AppCompat.Light.NoActionBar">
+<style name="AppTheme.Draggable" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsFloating">false</item>
@@ -21,7 +21,7 @@ Implementation is based on code in project  [Plaid](https://github.com/nickbutch
 - Put content of your activity in to `ElasticDragDismissFrameLayout` an register `ElasticDragDismissFrameLayout.OnDismissListener`
 
  ```xml
-<com.thefuntasty.hauler.ElasticDragDismissFrameLayout
+<com.thefuntasty.hauler.HaulerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:dragDismissDistance="112dp"

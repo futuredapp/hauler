@@ -1,6 +1,6 @@
 <resources>
 
-    <declare-styleable name="ElasticDragDismissFrameLayout">
+    <declare-styleable name="HaulerView">
         <attr name="dragDismissDistance" format="dimension"/>
         <attr name="dragDismissFraction" format="float"/>
         <attr name="dragDismissScale" format="float"/>
