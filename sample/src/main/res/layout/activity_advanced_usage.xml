@@ -41,6 +41,8 @@
                     android:textColor="@android:color/white"/>
 
         </LinearLayout>
+
     </com.thefuntasty.hauler.LockableNestedScrollView>
+
 </com.thefuntasty.hauler.HaulerView>
 
