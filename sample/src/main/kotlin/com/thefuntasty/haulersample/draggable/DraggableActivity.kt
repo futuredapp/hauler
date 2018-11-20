@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.thefuntasty.hauler.ElasticDragDismissFrameLayout
 import com.thefuntasty.haulersample.R
-import kotlinx.android.synthetic.main.activity_daraggable.*
+import kotlinx.android.synthetic.main.activity_draggable.*
 
 class DraggableActivity : AppCompatActivity() {
 
@@ -16,7 +16,7 @@ class DraggableActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_daraggable)
+        setContentView(R.layout.activity_draggable)
         elasticDragDismissFrameLayout.apply {
             isDragEnabled(true)
             setOnDragDismissedListener(object : ElasticDragDismissFrameLayout.OnDismissListener {

@@ -189,7 +189,7 @@ style:
   LoopWithTooManyJumpStatements:
     active: true
   MagicNumber:
-    active: true
+    active: false
   MandatoryBracesIfStatements:
     active: true
   MayBeConst:

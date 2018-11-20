@@ -1,4 +1,4 @@
-is_pr_big = git.lines_of_code > 500
+is_pr_big = git.insertions > 500
 has_correct_prefix = github.branch_for_head.match(/^(feature|hotfix|fix|release|housekeep)\//)
 
 warn("Branch name should have `release/`, `hotfix/`, `fix/`, `housekeep/` or `feature/` prefix.") if !has_correct_prefix

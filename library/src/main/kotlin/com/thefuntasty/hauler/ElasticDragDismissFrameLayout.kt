@@ -14,12 +14,12 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    // configurable attribs
+    // configurable attributes
     private var dragDismissDistance = java.lang.Float.MAX_VALUE
     private var dragDismissFraction = -1f
     private var dragDismissScale = 1f
     private var shouldScale = false
-    private var dragElacticity = 0.8f
+    private var dragElasticity = 0.8f
 
     // state
     private var totalDrag: Float = 0.toFloat()
@@ -38,23 +38,32 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
         }
 
         val attributesArray = getContext().obtainStyledAttributes(
-            attrs, R.styleable.ElasticDragDismissFrameLayout, 0, 0)
+            attrs, R.styleable.ElasticDragDismissFrameLayout, 0, 0
+        )
 
         if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissDistance)) {
-            dragDismissDistance = attributesArray.getDimensionPixelSize(R.styleable
-                .ElasticDragDismissFrameLayout_dragDismissDistance, 0).toFloat()
+            dragDismissDistance = attributesArray.getDimensionPixelSize(
+                R.styleable
+                    .ElasticDragDismissFrameLayout_dragDismissDistance, 0
+            ).toFloat()
         } else if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissFraction)) {
-            dragDismissFraction = attributesArray.getFloat(R.styleable
-                .ElasticDragDismissFrameLayout_dragDismissFraction, dragDismissFraction)
+            dragDismissFraction = attributesArray.getFloat(
+                R.styleable
+                    .ElasticDragDismissFrameLayout_dragDismissFraction, dragDismissFraction
+            )
         }
         if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissScale)) {
-            dragDismissScale = attributesArray.getFloat(R.styleable
-                .ElasticDragDismissFrameLayout_dragDismissScale, dragDismissScale)
+            dragDismissScale = attributesArray.getFloat(
+                R.styleable
+                    .ElasticDragDismissFrameLayout_dragDismissScale, dragDismissScale
+            )
             shouldScale = dragDismissScale != 1f
         }
         if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragElasticity)) {
-            dragElacticity = attributesArray.getFloat(R.styleable.ElasticDragDismissFrameLayout_dragElasticity,
-                dragElacticity)
+            dragElasticity = attributesArray.getFloat(
+                R.styleable.ElasticDragDismissFrameLayout_dragElasticity,
+                dragElasticity
+            )
         }
         attributesArray.recycle()
     }
@@ -63,16 +72,17 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
         this.isDragEnabled = isDragEnabled
     }
 
-    override fun onStartNestedScroll(child: View, target: View, nestedScrollAxes: Int): Boolean {
-        return nestedScrollAxes and View.SCROLL_AXIS_VERTICAL != 0
-    }
+    override fun onStartNestedScroll(child: View, target: View, nestedScrollAxes: Int): Boolean =
+        nestedScrollAxes and View.SCROLL_AXIS_VERTICAL != 0
 
     override fun onNestedPreScroll(target: View, dx: Int, dy: Int, consumed: IntArray) {
         if (isDragEnabled.not()) {
             return super.onNestedPreScroll(target, dx, dy, consumed)
         }
         // if we're in a drag gesture and the user reverses up the we should take those events
-        if (draggingDown && dy > 0 || draggingUp && dy < 0) {
+        val draggingDownInProgress = draggingDown && dy > 0
+        val draggingUpInProgress = draggingUp && dy < 0
+        if (draggingDownInProgress || draggingUpInProgress) {
             dragScale(dy)
             consumed[1] = dy
         }
@@ -154,7 +164,7 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
         var dragFraction = Math.log10((1 + Math.abs(totalDrag) / dragDismissDistance).toDouble()).toFloat()
 
         // calculate the desired translation given the drag fraction
-        var dragTo = dragFraction * dragDismissDistance * dragElacticity
+        var dragTo = dragFraction * dragDismissDistance * dragElasticity
 
         if (draggingUp) {
             // as we use the absolute magnitude when calculating the drag fraction, need to
@@ -171,7 +181,9 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
 
         // if we've reversed direction and gone past the settle point then clear the flags to
         // allow the list to get the scroll events & reset any transforms
-        if (draggingDown && totalDrag >= 0 || draggingUp && totalDrag <= 0) {
+        val downSettlePointReached = draggingDown && totalDrag >= 0
+        val upSettlePointReached = draggingUp && totalDrag <= 0
+        if (downSettlePointReached || upSettlePointReached) {
             dragFraction = 0f
             dragTo = dragFraction
             totalDrag = dragTo
