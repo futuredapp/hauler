@@ -16,7 +16,8 @@ class HaulerView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     // configurable attributes
-    private var dragDismissDistance = pxFromDp(context, 100f)
+    private var dragDismissDistance =
+        context.resources.getDimensionPixelSize(R.dimen.default_drag_dismiss_distance).toFloat()
     private var dragDismissFraction = -1f
     private var dragDismissScale = 0.95f
     private var shouldScale = true
@@ -53,6 +54,7 @@ class HaulerView @JvmOverloads constructor(
                 dragElasticity = getFloat(R.styleable.HaulerView_dragElasticity, dragElasticity)
             }
         }
+
 
         shouldScale = dragDismissScale != 1f
     }
