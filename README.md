@@ -4,7 +4,7 @@ Hauler
 Hauler is a library containing custom layout which enables to easily create swipe to dismiss `Activity`.
 Implementation is based on code from project [Plaid](https://github.com/nickbutcher/plaid).
 
-![Alt text](https://github.com/thefuntasty/hauler/blob/master/images/20181119_134036.gif)
+![Alt text](https://github.com/thefuntasty/hauler/blob/master/images/example.gif)
 
 How to use
 ----------
