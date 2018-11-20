@@ -30,7 +30,7 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
     private var onDragDismissed: OnDismissListener? = null
     private var systemChromeFader: SystemChromeFader? = null
 
-    private var isDragEnabled = false
+    private var isDragEnabled = true
 
     init {
         (context as? Activity)?.also {
