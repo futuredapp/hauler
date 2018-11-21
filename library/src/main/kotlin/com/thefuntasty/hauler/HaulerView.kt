@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.content.withStyledAttributes
 import androidx.core.view.animation.PathInterpolatorCompat
 
 class HaulerView @JvmOverloads constructor(
@@ -15,7 +16,8 @@ class HaulerView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     // configurable attributes
-    private var dragDismissDistance = pxFromDp(context, 100f)
+    private var dragDismissDistance =
+        context.resources.getDimensionPixelSize(R.dimen.default_drag_dismiss_distance).toFloat()
     private var dragDismissFraction = -1f
     private var dragDismissScale = 0.95f
     private var shouldScale = true
@@ -37,34 +39,21 @@ class HaulerView @JvmOverloads constructor(
             systemChromeFader = SystemChromeFader(it)
         }
 
-        val attributesArray = getContext().obtainStyledAttributes(
-            attrs, R.styleable.HaulerView, 0, 0
-        )
+        getContext().withStyledAttributes(set = attrs, attrs = R.styleable.HaulerView) {
+            val distanceAvailable = hasValue(R.styleable.HaulerView_dragDismissDistance)
+            val dismissFractionAvailable = hasValue(R.styleable.HaulerView_dragDismissFraction)
 
-        if (attributesArray.hasValue(R.styleable.HaulerView_dragDismissDistance)) {
-            dragDismissDistance = attributesArray.getDimensionPixelSize(
-                R.styleable.HaulerView_dragDismissDistance,
-                0
-            ).toFloat()
-        } else if (attributesArray.hasValue(R.styleable.HaulerView_dragDismissFraction)) {
-            dragDismissFraction = attributesArray.getFloat(
-                R.styleable.HaulerView_dragDismissFraction,
-                dragDismissFraction
-            )
+            if (distanceAvailable && dismissFractionAvailable) {
+                throw IllegalStateException("Do not specify both dragDismissDistance and dragDismissFraction. Choose one of them.")
+            } else if (distanceAvailable) {
+                dragDismissDistance = getDimensionPixelSize(R.styleable.HaulerView_dragDismissDistance, 0).toFloat()
+            } else if (dismissFractionAvailable) {
+                dragDismissFraction = getFloat(R.styleable.HaulerView_dragDismissFraction, dragDismissFraction)
+            }
+
+            dragDismissScale = getFloat(R.styleable.HaulerView_dragDismissScale, dragDismissScale)
+            dragElasticity = getFloat(R.styleable.HaulerView_dragElasticity, dragElasticity)
         }
-        if (attributesArray.hasValue(R.styleable.HaulerView_dragDismissScale)) {
-            dragDismissScale = attributesArray.getFloat(
-                R.styleable.HaulerView_dragDismissScale,
-                dragDismissScale
-            )
-        }
-        if (attributesArray.hasValue(R.styleable.HaulerView_dragElasticity)) {
-            dragElasticity = attributesArray.getFloat(
-                R.styleable.HaulerView_dragElasticity,
-                dragElasticity
-            )
-        }
-        attributesArray.recycle()
 
         shouldScale = dragDismissScale != 1f
     }
@@ -146,7 +135,7 @@ class HaulerView @JvmOverloads constructor(
     /**
      * Set if drag gesture is enabled
      */
-    fun isDragEnabled(isDragEnabled: Boolean) {
+    fun setDragEnabled(isDragEnabled: Boolean) {
         this.isDragEnabled = isDragEnabled
     }
 
