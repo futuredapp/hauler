@@ -29,7 +29,7 @@ class HaulerView @JvmOverloads constructor(
     private var draggingUp = false
     private var mLastActionEvent: Int = 0
 
-    private var onDragDismissed: (() -> Unit)? = null
+    private var onDragDismissed: (() -> Unit) = { }
     private var systemChromeFader: SystemChromeFader? = null
 
     private var isDragEnabled = true
@@ -44,7 +44,7 @@ class HaulerView @JvmOverloads constructor(
             val dismissFractionAvailable = hasValue(R.styleable.HaulerView_dragDismissFraction)
 
             if (distanceAvailable && dismissFractionAvailable) {
-                throw IllegalStateException("Do not specify both dragDismissDistance and dragDismissFraction. Choose one of them.")
+                throw IllegalStateException("Do not specify both dragDismissDistance and dragDismissFraction. Choose one.")
             } else if (distanceAvailable) {
                 dragDismissDistance = getDimensionPixelSize(R.styleable.HaulerView_dragDismissDistance, 0).toFloat()
             } else if (dismissFractionAvailable) {
@@ -198,6 +198,6 @@ class HaulerView @JvmOverloads constructor(
 
     private fun dispatchDismissCallback() {
         systemChromeFader?.onDismiss()
-        onDragDismissed?.invoke()
+        onDragDismissed.invoke()
     }
 }
