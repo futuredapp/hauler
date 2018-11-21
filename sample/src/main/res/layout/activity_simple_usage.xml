@@ -24,6 +24,8 @@
                     android:text="@string/swipe_to_dismiss"/>
 
         </FrameLayout>
+
     </androidx.core.widget.NestedScrollView>
+
 </com.thefuntasty.hauler.HaulerView>
 
