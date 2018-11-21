@@ -21,10 +21,10 @@ android {
 }
 
 dependencies {
+    implementation project(":library")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$support_library"
-    implementation "androidx.palette:palette:1.0.0"
-    implementation "androidx.core:core-ktx:1.0.1"
+    implementation 'com.android.databinding:library:3.2.1'
 }
 
 task sourcesJar(type: Jar) {
