@@ -3,7 +3,7 @@ package com.thefuntasty.hauler
 import android.app.Activity
 import android.graphics.Color
 
-class SystemChromeFader(private val activity: Activity) {
+internal class SystemChromeFader(private val activity: Activity) {
 
     private val statusBarAlpha: Int by lazy { Color.alpha(getStatusBarColor()) }
 

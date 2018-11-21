@@ -11,10 +11,10 @@ class LockableNestedScrollView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : NestedScrollView(context, attrs, defStyleAttr) {
 
-    private var isScrollable = false
+    private var isScrollable = true
 
-    fun isScrollable(isScrollingEnabled: Boolean) {
-        isScrollable = isScrollingEnabled
+    fun setScrollEnabled(isScrollEnabled: Boolean) {
+        isScrollable = isScrollEnabled
     }
 
     override fun onTouchEvent(ev: MotionEvent): Boolean = when (ev.action) {

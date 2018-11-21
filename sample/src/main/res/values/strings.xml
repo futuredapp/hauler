@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">DragToDismissSample</string>
-    <string name="start_new">Start new draggable activity</string>
+    <string name="app_name">Hauler</string>
+    <string name="start_common">Start Simple Usage Activity</string>
+    <string name="start_advanced">Start Advanced Usage Activity</string>
     <string name="swipe_to_dismiss">Swipe down to dismiss</string>
+    <string name="ignored_area_text">Ignored area</string>
 </resources>

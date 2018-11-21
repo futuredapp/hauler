@@ -6,19 +6,21 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.content.withStyledAttributes
 import androidx.core.view.animation.PathInterpolatorCompat
 
-class ElasticDragDismissFrameLayout @JvmOverloads constructor(
+class HaulerView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     // configurable attributes
-    private var dragDismissDistance = java.lang.Float.MAX_VALUE
+    private var dragDismissDistance =
+        context.resources.getDimensionPixelSize(R.dimen.default_drag_dismiss_distance).toFloat()
     private var dragDismissFraction = -1f
-    private var dragDismissScale = 1f
-    private var shouldScale = false
+    private var dragDismissScale = 0.95f
+    private var shouldScale = true
     private var dragElasticity = 0.8f
 
     // state
@@ -27,49 +29,33 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
     private var draggingUp = false
     private var mLastActionEvent: Int = 0
 
-    private var onDragDismissed: OnDismissListener? = null
+    private var onDragDismissed: (() -> Unit)? = null
     private var systemChromeFader: SystemChromeFader? = null
 
-    private var isDragEnabled = false
+    private var isDragEnabled = true
 
     init {
         (context as? Activity)?.also {
             systemChromeFader = SystemChromeFader(it)
         }
 
-        val attributesArray = getContext().obtainStyledAttributes(
-            attrs, R.styleable.ElasticDragDismissFrameLayout, 0, 0
-        )
+        getContext().withStyledAttributes(set = attrs, attrs = R.styleable.HaulerView) {
+            val distanceAvailable = hasValue(R.styleable.HaulerView_dragDismissDistance)
+            val dismissFractionAvailable = hasValue(R.styleable.HaulerView_dragDismissFraction)
 
-        if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissDistance)) {
-            dragDismissDistance = attributesArray.getDimensionPixelSize(
-                R.styleable
-                    .ElasticDragDismissFrameLayout_dragDismissDistance, 0
-            ).toFloat()
-        } else if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissFraction)) {
-            dragDismissFraction = attributesArray.getFloat(
-                R.styleable
-                    .ElasticDragDismissFrameLayout_dragDismissFraction, dragDismissFraction
-            )
-        }
-        if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragDismissScale)) {
-            dragDismissScale = attributesArray.getFloat(
-                R.styleable
-                    .ElasticDragDismissFrameLayout_dragDismissScale, dragDismissScale
-            )
-            shouldScale = dragDismissScale != 1f
-        }
-        if (attributesArray.hasValue(R.styleable.ElasticDragDismissFrameLayout_dragElasticity)) {
-            dragElasticity = attributesArray.getFloat(
-                R.styleable.ElasticDragDismissFrameLayout_dragElasticity,
-                dragElasticity
-            )
-        }
-        attributesArray.recycle()
-    }
+            if (distanceAvailable && dismissFractionAvailable) {
+                throw IllegalStateException("Do not specify both dragDismissDistance and dragDismissFraction. Choose one of them.")
+            } else if (distanceAvailable) {
+                dragDismissDistance = getDimensionPixelSize(R.styleable.HaulerView_dragDismissDistance, 0).toFloat()
+            } else if (dismissFractionAvailable) {
+                dragDismissFraction = getFloat(R.styleable.HaulerView_dragDismissFraction, dragDismissFraction)
+            }
 
-    fun isDragEnabled(isDragEnabled: Boolean) {
-        this.isDragEnabled = isDragEnabled
+            dragDismissScale = getFloat(R.styleable.HaulerView_dragDismissScale, dragDismissScale)
+            dragElasticity = getFloat(R.styleable.HaulerView_dragElasticity, dragElasticity)
+        }
+
+        shouldScale = dragDismissScale != 1f
     }
 
     override fun onStartNestedScroll(child: View, target: View, nestedScrollAxes: Int): Boolean =
@@ -138,8 +124,19 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
         }
     }
 
-    fun setOnDragDismissedListener(listener: OnDismissListener) {
-        onDragDismissed = listener
+    /**
+     * Set lambda reference which is called when dismiss gesture has
+     * been performed
+     */
+    fun setOnDragDismissedListener(onDragDismissedListener: () -> Unit) {
+        onDragDismissed = onDragDismissedListener
+    }
+
+    /**
+     * Set if drag gesture is enabled
+     */
+    fun setDragEnabled(isDragEnabled: Boolean) {
+        this.isDragEnabled = isDragEnabled
     }
 
     private fun dragScale(scroll: Int) {
@@ -201,10 +198,6 @@ class ElasticDragDismissFrameLayout @JvmOverloads constructor(
 
     private fun dispatchDismissCallback() {
         systemChromeFader?.onDismiss()
-        onDragDismissed?.dismiss()
-    }
-
-    interface OnDismissListener {
-        fun dismiss()
+        onDragDismissed?.invoke()
     }
 }

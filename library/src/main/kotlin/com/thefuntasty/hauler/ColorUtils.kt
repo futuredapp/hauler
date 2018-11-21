@@ -4,7 +4,7 @@ import androidx.annotation.CheckResult
 import androidx.annotation.ColorInt
 import androidx.annotation.IntRange
 
-object ColorUtils {
+internal object ColorUtils {
 
     @CheckResult
     @ColorInt
