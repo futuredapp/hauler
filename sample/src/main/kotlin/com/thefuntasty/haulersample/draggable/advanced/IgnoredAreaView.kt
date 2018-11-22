@@ -1,4 +1,4 @@
-package com.thefuntasty.haulersample.draggable
+package com.thefuntasty.haulersample.draggable.advanced
 
 import android.annotation.SuppressLint
 import android.content.Context

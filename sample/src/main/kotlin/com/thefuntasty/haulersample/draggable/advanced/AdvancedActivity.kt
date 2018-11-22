@@ -1,21 +1,21 @@
-package com.thefuntasty.haulersample.draggable
+package com.thefuntasty.haulersample.draggable.advanced
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.thefuntasty.haulersample.R
-import kotlinx.android.synthetic.main.activity_advanced_usage.*
+import kotlinx.android.synthetic.main.activity_advanced.*
 
-class AdvancedUsageActivity : AppCompatActivity() {
+class AdvancedActivity : AppCompatActivity() {
 
     companion object {
-        fun getStartIntent(context: Context): Intent = Intent(context, AdvancedUsageActivity::class.java)
+        fun getStartIntent(context: Context): Intent = Intent(context, AdvancedActivity::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_advanced_usage)
+        setContentView(R.layout.activity_advanced)
 
         advancedHaulerView.setOnDragDismissedListener {
             finish()

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewState"
+                type="com.thefuntasty.haulersample.draggable.databinding.DatabindingActivityState"/>
+    </data>
+
+    <com.thefuntasty.hauler.HaulerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            app:isDragEnabled="@{viewState.dragEnabled}"
+            app:onDragDismissedListener="@{viewState.onDragDismissedListener}">
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp">
+
+                <CheckBox
+                        android:id="@+id/dragEnabledCheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/drag_enabled"
+                        android:checked="true"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/swipe_to_dismiss"/>
+
+            </FrameLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </com.thefuntasty.hauler.HaulerView>
+
+</layout>

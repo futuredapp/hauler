@@ -1,6 +1,6 @@
 package com.thefuntasty.hauler.databinding
 
-import android.databinding.BindingAdapter
+import androidx.databinding.BindingAdapter
 import com.thefuntasty.hauler.HaulerView
 
 @BindingAdapter("app:onDragDismissedListener")

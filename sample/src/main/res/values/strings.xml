@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Hauler</string>
-    <string name="start_common">Start Simple Usage Activity</string>
-    <string name="start_advanced">Start Advanced Usage Activity</string>
+    <string name="start_common">Start Simple Activity</string>
+    <string name="start_advanced">Start Advanced Activity</string>
+    <string name="start_binding">Start Binding Activity</string>
     <string name="swipe_to_dismiss">Swipe down to dismiss</string>
     <string name="ignored_area_text">Ignored area</string>
+    <string name="drag_enabled">Drag Enabled</string>
 </resources>

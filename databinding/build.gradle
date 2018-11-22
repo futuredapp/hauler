@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.thefuntasty'
@@ -10,7 +11,6 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
-        versionName "1.0.0"
     }
 
     sourceSets {
@@ -18,13 +18,16 @@ android {
             java.srcDirs = ['src/main/kotlin']
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
     implementation project(":library")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$support_library"
-    implementation 'com.android.databinding:library:3.2.1'
 }
 
 task sourcesJar(type: Jar) {
