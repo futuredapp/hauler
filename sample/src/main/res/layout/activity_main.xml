@@ -22,4 +22,11 @@
             android:text="@string/start_advanced"
             android:layout_gravity="center"/>
 
+    <Button
+            android:id="@+id/startBindingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_binding"
+            android:layout_gravity="center"/>
+
 </LinearLayout>

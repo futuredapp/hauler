@@ -19,11 +19,15 @@
         </activity>
 
         <activity
-                android:name=".draggable.SimpleUsageActivity"
+                android:name=".draggable.SimpleActivity"
                 android:theme="@style/AppTheme.Draggable"/>
 
         <activity
-                android:name=".draggable.AdvancedUsageActivity"
+                android:name=".draggable.advanced.AdvancedActivity"
+                android:theme="@style/AppTheme.Draggable"/>
+
+        <activity
+                android:name=".draggable.databinding.DatabindingActivity"
                 android:theme="@style/AppTheme.Draggable"/>
 
     </application>
