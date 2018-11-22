@@ -17,10 +17,11 @@
             app:isDragEnabled="@{viewState.dragEnabled}"
             app:onDragDismissedListener="@{viewState.onDragDismissedListener}">
 
-        <androidx.core.widget.NestedScrollView
+        <com.thefuntasty.hauler.LockableNestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fillViewport="true">
+                android:fillViewport="true"
+                app:isScrollable="@{true}">
 
             <FrameLayout
                     android:layout_width="match_parent"
@@ -42,7 +43,7 @@
 
             </FrameLayout>
 
-        </androidx.core.widget.NestedScrollView>
+        </com.thefuntasty.hauler.LockableNestedScrollView>
 
     </com.thefuntasty.hauler.HaulerView>
 
