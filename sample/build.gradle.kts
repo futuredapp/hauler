@@ -11,7 +11,7 @@ android {
     compileSdkVersion(ProjectSettings.targetSdk)
 
     defaultConfig {
-        applicationId = "com.thefuntasty.hauler"
+        applicationId = ProjectSettings.applicationId
         minSdkVersion(ProjectSettings.minSdk)
         targetSdkVersion(ProjectSettings.targetSdk)
     }
