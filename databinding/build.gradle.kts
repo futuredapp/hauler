@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.config.KotlinCompilerVersion
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -27,8 +29,7 @@ android {
 dependencies {
     implementation(project(":library"))
 
-    // Kotlin
-    implementation(kotlin(Deps.Kotlin.stdlib, Versions.kotlin))
+    implementation(kotlin(Deps.Kotlin.stdlib, KotlinCompilerVersion.VERSION))
     implementation(Deps.AndroidX.appcompat)
 }
 

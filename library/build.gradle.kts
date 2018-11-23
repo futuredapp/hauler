@@ -26,8 +26,6 @@ android {
 }
 
 dependencies {
-
-    // Kotlin
     implementation(kotlin(Deps.Kotlin.stdlib, KotlinCompilerVersion.VERSION))
     implementation(Deps.AndroidX.appcompat)
     implementation(Deps.AndroidX.palette)
