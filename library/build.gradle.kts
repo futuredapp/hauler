@@ -36,7 +36,7 @@ dependencies {
 
 tasks {
     val sourcesJar by creating(type = Jar::class) {
-        from("android.sourceSets.main.java.srcDirs")
+        from(android.sourceSets.getByName("main").java.srcDirs)
         classifier = "sources"
     }
 
