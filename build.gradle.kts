@@ -44,5 +44,3 @@ detekt {
     filters = ".*/resources/.*,.*/build/.*"
     config = files("detekt.yml")
 }
-
-
