@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/thefuntasty/hauler.svg)](https://jitpack.io/#thefuntasty/hauler)
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
 
 Hauler
