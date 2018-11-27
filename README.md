@@ -1,3 +1,5 @@
+![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
+
 Hauler
 ======
 
@@ -9,8 +11,8 @@ Implementation is based on code from project [Plaid](https://github.com/nickbutc
 How to use
 ----------
  
- Activity which is meant to be dismissed must contain `HaulerView` as a root view and `NestedScrollView` as its child. 
- Make sure your `NestedScrollview`'s attribute `android:fillViewport` is set to `true` otherwise it might not behave as
+ Activity which is meant to be dismissed must contain `HaulerView` as a root view and `NestedScrollView` (or other `View` what supports nested scroll) 
+ as its child. Make sure your `NestedScrollview`'s attribute `android:fillViewport` is set to `true` otherwise it might not behave as
  expected:
 
 ```xml
@@ -86,5 +88,19 @@ Attributes `dragDismissDistance` and `dragDismissFraction` are exclusive. Do not
 
 Download
 --------
-TBD
-
+`build.gradle`:
+```groovy
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}    
+```
+`module/build.gradle`:
+```groovy
+dependencies {
+    // ...
+    implementation("com.github.thefuntasty.hauler:library:1.1.0")
+    implementation("com.github.thefuntasty.hauler:databinding:1.1.0")
+}
+```
