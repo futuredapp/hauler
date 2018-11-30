@@ -1,6 +1,8 @@
 [![](https://jitpack.io/v/thefuntasty/hauler.svg)](https://jitpack.io/#thefuntasty/hauler)
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
 
+![](https://raw.githubusercontent.com/thefuntasty/hauler/master/images/logo_stretch.png)
+
 Hauler
 ======
 
