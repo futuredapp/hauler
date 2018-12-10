@@ -33,6 +33,7 @@ class HaulerView @JvmOverloads constructor(
     private var systemChromeFader: SystemChromeFader? = null
 
     private var isDragEnabled = true
+    private var dragUpEnabled = false
 
     init {
         (context as? Activity)?.also {
@@ -52,6 +53,7 @@ class HaulerView @JvmOverloads constructor(
             }
 
             dragDismissScale = getFloat(R.styleable.HaulerView_dragDismissScale, dragDismissScale)
+            dragUpEnabled = getBoolean(R.styleable.HaulerView_dragUpEnabled, dragUpEnabled)
             dragElasticity = getFloat(R.styleable.HaulerView_dragElasticity, dragElasticity)
         }
 
@@ -90,7 +92,9 @@ class HaulerView @JvmOverloads constructor(
         if (isDragEnabled.not()) {
             return super.onStopNestedScroll(child)
         }
-        if (-totalDrag >= dragDismissDistance) {
+
+        val totalDragNormalized = if (dragUpEnabled) Math.abs(totalDrag) else -totalDrag
+        if (totalDragNormalized >= dragDismissDistance) {
             dispatchDismissCallback()
         } else { // settle back to natural position
             if (mLastActionEvent == MotionEvent.ACTION_DOWN) {
@@ -122,6 +126,13 @@ class HaulerView @JvmOverloads constructor(
         if (dragDismissFraction > 0f) {
             dragDismissDistance = h * dragDismissFraction
         }
+    }
+
+    /**
+     * Set if drag/swipe up dismiss is enabled
+     */
+    fun setDragUpEnabled(dragUpEnabled: Boolean) {
+        this.dragUpEnabled = dragUpEnabled
     }
 
     /**
