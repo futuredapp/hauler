@@ -1,5 +1,6 @@
 [![](https://jitpack.io/v/thefuntasty/hauler.svg)](https://jitpack.io/#thefuntasty/hauler)
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Hauler-brightgreen.svg?style=flat )]( https://android-arsenal.com/details/1/7359 )
 
 ![](https://raw.githubusercontent.com/thefuntasty/hauler/master/images/logo_stretch.png)
 
