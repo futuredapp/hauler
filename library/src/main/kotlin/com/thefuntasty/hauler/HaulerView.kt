@@ -29,7 +29,7 @@ class HaulerView @JvmOverloads constructor(
     private var draggingUp = false
     private var mLastActionEvent: Int = 0
 
-    private var onDragDismissed: (() -> Unit) = { }
+    private var onDragDismissed: ((dragDirection: DragDirection) -> Unit) = { }
     private var systemChromeFader: SystemChromeFader? = null
 
     private var isDragEnabled = true
@@ -94,8 +94,10 @@ class HaulerView @JvmOverloads constructor(
         }
 
         val totalDragNormalized = if (dragUpEnabled) Math.abs(totalDrag) else -totalDrag
+        val dragDirection = if (totalDrag > 0) DragDirection.UP else DragDirection.DOWN
+
         if (totalDragNormalized >= dragDismissDistance) {
-            dispatchDismissCallback()
+            dispatchDismissCallback(dragDirection)
         } else { // settle back to natural position
             if (mLastActionEvent == MotionEvent.ACTION_DOWN) {
                 // this is a 'defensive cleanup for new gestures',
@@ -139,7 +141,7 @@ class HaulerView @JvmOverloads constructor(
      * Set lambda reference which is called when dismiss gesture has
      * been performed
      */
-    fun setOnDragDismissedListener(onDragDismissedListener: () -> Unit) {
+    fun setOnDragDismissedListener(onDragDismissedListener: (dragDirection: DragDirection) -> Unit) {
         onDragDismissed = onDragDismissedListener
     }
 
@@ -207,8 +209,8 @@ class HaulerView @JvmOverloads constructor(
     private fun dispatchDragCallback(elasticOffsetPixels: Float, rawOffset: Float) =
         systemChromeFader?.onDrag(elasticOffsetPixels, rawOffset)
 
-    private fun dispatchDismissCallback() {
+    private fun dispatchDismissCallback(dragDirection: DragDirection) {
         systemChromeFader?.onDismiss()
-        onDragDismissed.invoke()
+        onDragDismissed.invoke(dragDirection)
     }
 }
