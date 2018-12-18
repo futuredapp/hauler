@@ -104,9 +104,9 @@ allprojects {
 `module/build.gradle`:
 ```groovy
 dependencies {
-    implementation("com.github.thefuntasty.hauler:library:1.1.0")
+    implementation("com.github.thefuntasty.hauler:library:2.0.0")
 
     // optional dependency with set of Data Binding adapters
-    implementation("com.github.thefuntasty.hauler:databinding:1.1.0")
+    implementation("com.github.thefuntasty.hauler:databinding:2.0.0")
 }
 ```
