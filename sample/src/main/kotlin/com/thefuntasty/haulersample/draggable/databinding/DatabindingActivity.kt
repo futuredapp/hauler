@@ -5,25 +5,22 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.thefuntasty.hauler.DragDirection
 import com.thefuntasty.haulersample.R
 import com.thefuntasty.haulersample.databinding.ActivityDatabindingBinding
 import kotlinx.android.synthetic.main.activity_databinding.*
 
-class DatabindingActivity : AppCompatActivity() {
-
+class DatabindingActivity : AppCompatActivity(), DatabindingActivityView {
     companion object {
         fun getStartIntent(context: Context): Intent = Intent(context, DatabindingActivity::class.java)
     }
-
     lateinit var binding: ActivityDatabindingBinding
 
-    private val onDragDismissListener = Runnable { finish() }
-    private var state = DatabindingActivityState(true, onDragDismissListener)
-
+    private var state = DatabindingActivityState(true)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView<ActivityDatabindingBinding>(this, R.layout.activity_databinding)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding)
         refreshBinding()
 
         dragEnabledCheck.setOnCheckedChangeListener { _, isChecked ->
@@ -34,6 +31,11 @@ class DatabindingActivity : AppCompatActivity() {
 
     private fun refreshBinding() {
         binding.viewState = state
+        binding.view = this
         binding.executePendingBindings()
+    }
+
+    override fun onDragDismissed(dragDirection: DragDirection) {
+        finish()
     }
 }

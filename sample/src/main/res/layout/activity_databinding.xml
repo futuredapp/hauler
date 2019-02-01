@@ -6,6 +6,10 @@
         <variable
                 name="viewState"
                 type="com.thefuntasty.haulersample.draggable.databinding.DatabindingActivityState"/>
+
+        <variable
+                name="view"
+                type="com.thefuntasty.haulersample.draggable.databinding.DatabindingActivityView"/>
     </data>
 
     <com.thefuntasty.hauler.HaulerView
@@ -15,7 +19,8 @@
             android:orientation="vertical"
             android:background="@android:color/white"
             app:isDragEnabled="@{viewState.dragEnabled}"
-            app:onDragDismissedListener="@{viewState.onDragDismissedListener}">
+            app:isDragUpEnabled="@{true}"
+            app:onDragDismissedListener="@{(dragDirection) -> view.onDragDismissed(dragDirection)}">
 
         <com.thefuntasty.hauler.LockableNestedScrollView
                 android:layout_width="match_parent"
