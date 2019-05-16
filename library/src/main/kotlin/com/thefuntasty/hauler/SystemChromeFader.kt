@@ -9,7 +9,7 @@ internal class SystemChromeFader(private val activity: Activity) {
 
     fun onDrag(elasticOffsetPixels: Float, rawOffset: Float) {
         when {
-            elasticOffsetPixels > 0f -> // dragging downward, fade the status bar in proportion
+            elasticOffsetPixels != 0f -> // dragging downward or upward, fade the status bar in proportion
                 activity.window.statusBarColor = ColorUtils.modifyAlpha(getStatusBarColor(), getNewAlpha(rawOffset))
             elasticOffsetPixels == 0f ->
                 activity.window.statusBarColor = ColorUtils.modifyAlpha(getStatusBarColor(), statusBarAlpha)
