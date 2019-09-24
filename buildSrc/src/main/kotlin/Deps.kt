@@ -15,7 +15,7 @@ object Deps {
 
     object AndroidX {
         const val appcompat = "androidx.appcompat:appcompat:${Versions.androidx}"
-        const val palette = "androidx.palette:palette:${Versions.androidx}"
+        const val palette = "androidx.palette:palette:${Versions.palette}"
         const val ktx = "androidx.core:core-ktx:${Versions.androidx}"
     }
 }
