@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.thefuntasty.hauler.DragDirection
+import com.thefuntasty.hauler.setOnDragDismissedListener
 import com.thefuntasty.haulersample.R
 import kotlinx.android.synthetic.main.activity_advanced.*
 

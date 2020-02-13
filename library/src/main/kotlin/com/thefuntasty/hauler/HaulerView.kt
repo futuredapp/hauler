@@ -29,7 +29,7 @@ class HaulerView @JvmOverloads constructor(
     private var draggingUp = false
     private var mLastActionEvent: Int = 0
 
-    private var onDragDismissed: ((dragDirection: DragDirection) -> Unit) = { }
+    private var onDragDismissedListener: OnDragDismissedListener? = null
     private var systemChromeFader: SystemChromeFader? = null
 
     private var isDragEnabled = true
@@ -141,8 +141,8 @@ class HaulerView @JvmOverloads constructor(
      * Set lambda reference which is called when dismiss gesture has
      * been performed
      */
-    fun setOnDragDismissedListener(onDragDismissedListener: (dragDirection: DragDirection) -> Unit) {
-        onDragDismissed = onDragDismissedListener
+    fun setOnDragDismissedListener(onDragDismissedListener: OnDragDismissedListener) {
+        this.onDragDismissedListener = onDragDismissedListener
     }
 
     /**
@@ -211,6 +211,6 @@ class HaulerView @JvmOverloads constructor(
 
     private fun dispatchDismissCallback(dragDirection: DragDirection) {
         systemChromeFader?.onDismiss()
-        onDragDismissed.invoke(dragDirection)
+        onDragDismissedListener?.onDismissed(dragDirection)
     }
 }
