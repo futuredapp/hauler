@@ -12,7 +12,7 @@
             android:id="@+id/startCommonButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/start_common"
+            android:text="@string/start_simple"
             android:layout_gravity="center"/>
 
     <Button
@@ -20,13 +20,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/start_advanced"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center" />
 
     <Button
             android:id="@+id/startBindingButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/start_binding"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center" />
+
+    <Button
+            android:id="@+id/startJavaCommonButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_simple_java"
+            android:layout_gravity="center" />
 
 </LinearLayout>

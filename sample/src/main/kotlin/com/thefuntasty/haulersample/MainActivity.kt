@@ -3,6 +3,7 @@ package com.thefuntasty.haulersample
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.thefuntasty.haulersample.draggable.SimpleActivity
+import com.thefuntasty.haulersample.draggable.SimpleJavaActivity
 import com.thefuntasty.haulersample.draggable.advanced.AdvancedActivity
 import com.thefuntasty.haulersample.draggable.databinding.DatabindingActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity() {
 
         startBindingButton.setOnClickListener {
             startActivity(DatabindingActivity.getStartIntent(this))
+        }
+
+        startJavaCommonButton.setOnClickListener {
+            startActivity(SimpleJavaActivity.getStartIntent(this))
         }
     }
 }
