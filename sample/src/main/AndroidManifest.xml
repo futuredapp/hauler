@@ -20,15 +20,19 @@
 
         <activity
                 android:name=".draggable.SimpleActivity"
-                android:theme="@style/AppTheme.Draggable"/>
+                android:theme="@style/AppTheme.Draggable" />
 
         <activity
                 android:name=".draggable.advanced.AdvancedActivity"
-                android:theme="@style/AppTheme.Draggable"/>
+                android:theme="@style/AppTheme.Draggable" />
 
         <activity
                 android:name=".draggable.databinding.DatabindingActivity"
-                android:theme="@style/AppTheme.Draggable"/>
+                android:theme="@style/AppTheme.Draggable" />
+
+        <activity
+                android:name=".draggable.SimpleJavaActivity"
+                android:theme="@style/AppTheme.Draggable" />
 
     </application>
 </manifest>
