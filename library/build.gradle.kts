@@ -3,10 +3,10 @@ import org.jetbrains.kotlin.config.KotlinCompilerVersion
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("com.github.dcendents.android-maven")
 }
 
-group = "com.github.thefuntasty"
+group = ProjectSettings.group
+version = ProjectSettings.version
 
 android {
     compileSdkVersion(ProjectSettings.targetSdk)
@@ -19,10 +19,6 @@ android {
     sourceSets {
         getByName("main").java.srcDir("src/main/kotlin")
     }
-
-    dataBinding {
-        isEnabled = true
-    }
 }
 
 dependencies {
@@ -32,13 +28,10 @@ dependencies {
     implementation(Deps.AndroidX.ktx)
 }
 
-tasks {
-    val sourcesJar by creating(type = Jar::class) {
-        from(android.sourceSets.getByName("main").java.srcDirs)
-        classifier = "sources"
-    }
-
-    artifacts {
-        add("archives", sourcesJar)
-    }
+project.apply {
+    extensions.add("artifact", ProjectSettings.Library.artifact)
+    extensions.add("libraryName", ProjectSettings.Library.artifact)
+    extensions.add("libraryDescription", ProjectSettings.Library.description)
 }
+
+apply("../publish.script.gradle")

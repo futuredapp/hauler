@@ -4,13 +4,13 @@ object Deps {
     object Plugins {
         const val detekt = "io.gitlab.arturbosch.detekt"
         const val ktlint = "org.jlleitschuh.gradle.ktlint"
-        const val androidMaven = "com.github.dcendents:android-maven-gradle-plugin:${Versions.androidMaven}"
+        const val bintray = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintray}"
+        const val dokka = "org.jetbrains.dokka:dokka-android-gradle-plugin:${Versions.dokka}"
     }
 
     object Kotlin {
         const val gradlePlugin = "gradle-plugin"
         const val stdlib = "stdlib-jdk7"
-        const val reflect = "reflect"
     }
 
     object AndroidX {
