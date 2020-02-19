@@ -17,6 +17,7 @@ class LockableNestedScrollView @JvmOverloads constructor(
         isScrollable = isScrollEnabled
     }
 
+    @Suppress("ClickableViewAccessibility")
     override fun onTouchEvent(ev: MotionEvent): Boolean = when (ev.action) {
         MotionEvent.ACTION_DOWN ->
             isScrollable && super.onTouchEvent(ev)

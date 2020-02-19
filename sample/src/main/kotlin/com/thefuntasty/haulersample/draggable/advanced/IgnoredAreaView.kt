@@ -4,14 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import com.thefuntasty.hauler.LockableNestedScrollView
 
 class IgnoredAreaView @kotlin.jvm.JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : TextView(context, attrs, defStyleAttr) {
+) : AppCompatTextView(context, attrs, defStyleAttr) {
 
     private var parentScrollView: LockableNestedScrollView? = null
 
