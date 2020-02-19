@@ -13,16 +13,16 @@ buildscript {
     }
 
     extra.apply {
-        set ("bintrayRepo", ProjectSettings.Publish.bintrayRepo)
-        set ("publishedGroupId", ProjectSettings.group)
-        set ("siteUrl", ProjectSettings.Publish.siteUrl)
-        set ("gitUrl",  ProjectSettings.Publish.gitUrl)
-        set ("developerId", ProjectSettings.Publish.developerId)
-        set ("developerName", ProjectSettings.Publish.developerName)
-        set ("developerEmail", ProjectSettings.Publish.developerEmail)
-        set ("licenseName", ProjectSettings.Publish.licenseName)
-        set ("licenseUrl", ProjectSettings.Publish.licenseUrl)
-        set ("allLicenses", ProjectSettings.Publish.allLicenses)
+        set("bintrayRepo", ProjectSettings.Publish.bintrayRepo)
+        set("publishedGroupId", ProjectSettings.group)
+        set("siteUrl", ProjectSettings.Publish.siteUrl)
+        set("gitUrl", ProjectSettings.Publish.gitUrl)
+        set("developerId", ProjectSettings.Publish.developerId)
+        set("developerName", ProjectSettings.Publish.developerName)
+        set("developerEmail", ProjectSettings.Publish.developerEmail)
+        set("licenseName", ProjectSettings.Publish.licenseName)
+        set("licenseUrl", ProjectSettings.Publish.licenseUrl)
+        set("allLicenses", ProjectSettings.Publish.allLicenses)
     }
 }
 
