@@ -1,7 +1,7 @@
-[![](https://jitpack.io/v/thefuntasty/hauler.svg)](https://jitpack.io/#thefuntasty/hauler)
+[![Download](https://api.bintray.com/packages/thefuntastyops/hauler/core/images/download.svg) ](https://bintray.com/thefuntastyops/hauler/core/_latestVersion)
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Hauler-brightgreen.svg?style=flat )]( https://android-arsenal.com/details/1/7359 )
-
+![Check Master](https://github.com/futuredapp/hauler/workflows/Check%20Master/badge.svg?branch=master)
 ![](https://raw.githubusercontent.com/thefuntasty/hauler/master/images/logo_stretch.png)
 
 Hauler
@@ -93,20 +93,12 @@ Attributes `dragDismissDistance` and `dragDismissFraction` are exclusive. Do not
 
 Download
 --------
-`build.gradle`:
-```groovy
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
-}    
-```
 `module/build.gradle`:
 ```groovy
 dependencies {
-    implementation("com.github.thefuntasty.hauler:library:3.0.0")
+    implementation("com.thefuntasty.hauler:core:3.0.1")
 
     // optional dependency with set of Data Binding adapters
-    implementation("com.github.thefuntasty.hauler:databinding:3.0.0")
+    implementation("com.thefuntasty.hauler:core:databinding:3.0.1")
 }
 ```
