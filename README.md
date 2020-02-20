@@ -93,20 +93,12 @@ Attributes `dragDismissDistance` and `dragDismissFraction` are exclusive. Do not
 
 Download
 --------
-`build.gradle`:
-```groovy
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
-}    
-```
 `module/build.gradle`:
 ```groovy
 dependencies {
-    implementation("com.github.thefuntasty.hauler:library:3.0.0")
+    implementation("com.thefuntasty.hauler:core:3.0.1")
 
     // optional dependency with set of Data Binding adapters
-    implementation("com.github.thefuntasty.hauler:databinding:3.0.0")
+    implementation("com.thefuntasty.hauler:core:databinding:3.0.1")
 }
 ```
