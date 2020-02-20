@@ -1,7 +1,7 @@
-[![](https://jitpack.io/v/thefuntasty/hauler.svg)](https://jitpack.io/#thefuntasty/hauler)
+[![Download](https://api.bintray.com/packages/thefuntastyops/hauler/core/images/download.svg) ](https://bintray.com/thefuntastyops/hauler/core/_latestVersion)
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Hauler-brightgreen.svg?style=flat )]( https://android-arsenal.com/details/1/7359 )
-
+![Check Master](https://github.com/futuredapp/hauler/workflows/Check%20Master/badge.svg?branch=master)
 ![](https://raw.githubusercontent.com/thefuntasty/hauler/master/images/logo_stretch.png)
 
 Hauler
