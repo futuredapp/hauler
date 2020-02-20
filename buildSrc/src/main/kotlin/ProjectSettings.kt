@@ -5,9 +5,14 @@ object ProjectSettings {
     const val group = "com.thefuntasty.hauler"
     val version = System.getenv("BITRISE_GIT_TAG")?:"0.0.1-TEST"
 
-    object Library {
-        const val artifact = "hauler"
+    object Core {
+        const val artifact = "core"
         const val description = "Library containing custom layout which enables to easily create swipe to dismiss Activity"
+    }
+
+    object Databinding {
+        const val artifact = "databinding"
+        const val description = "Databinding extensions for core library"
     }
 
 

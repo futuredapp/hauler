@@ -6,7 +6,8 @@ plugins {
     id("kotlin-kapt")
 }
 
-group = "com.github.thefuntasty"
+group = ProjectSettings.group
+version = ProjectSettings.version
 
 android {
     compileSdkVersion(ProjectSettings.targetSdk)
@@ -26,19 +27,17 @@ android {
 }
 
 dependencies {
-    implementation(project(":library"))
+    implementation(project(":core"))
 
     implementation(kotlin(Deps.Kotlin.stdlib, KotlinCompilerVersion.VERSION))
     implementation(Deps.AndroidX.appcompat)
 }
 
-tasks {
-    val sourcesJar by creating(type = Jar::class) {
-        from(android.sourceSets.getByName("main").java.srcDirs)
-        classifier = "sources"
-    }
-
-    artifacts {
-        add("archives", sourcesJar)
-    }
+project.apply {
+    extensions.add("artifact", ProjectSettings.Databinding.artifact)
+    extensions.add("libraryName", ProjectSettings.Databinding.artifact)
+    extensions.add("libraryDescription", ProjectSettings.Databinding.description)
 }
+
+apply("../publish.script.gradle")
+
