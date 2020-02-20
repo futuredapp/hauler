@@ -1,4 +1,4 @@
-name: Check 3.x
+name: Check Master
 on:
   push:
     branches:
