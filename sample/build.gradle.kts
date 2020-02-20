@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":library"))
+    implementation(project(":core"))
     implementation(project(":databinding"))
 
     // Kotlin

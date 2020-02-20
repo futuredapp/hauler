@@ -1,3 +1,3 @@
 rootProject.buildFileName = "build.gradle.kts"
 
-include(":library", ":databinding", ":sample")
+include(":core", ":databinding", ":sample")
