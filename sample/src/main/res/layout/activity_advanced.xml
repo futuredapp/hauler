@@ -11,6 +11,7 @@
         app:dragUpEnabled="true"
         app:dragElasticity="0.4"
         app:dragDismissScale="0.6"
+        app:fadeSystemBars="false"
         app:dragDismissDistance="200dp">
 
     <com.thefuntasty.hauler.LockableNestedScrollView

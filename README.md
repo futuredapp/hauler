@@ -88,6 +88,7 @@ There are few styleable attributes you might want to use to customize your `Haul
 | `app:dragElasticity` | float | 0.8 | `<0;1>` - Toughness of swipe. Higher value indicates more rigid feeling  |
 | `app:dragDismissScale` | float | 0.95 | `<0;1>` - Scale factor of `View` while performing swipe action |
 | `app:dragUpEnabled` | boolean | false | Flag indicating if drag up dismiss gesture is enabled |
+| `app:fadeSystemBars` | boolean | true | Flag indicating if system bars (status & navigation) fades while dismiss is in progress |
 
 Attributes `dragDismissDistance` and `dragDismissFraction` are exclusive. Do not use them together.
 
