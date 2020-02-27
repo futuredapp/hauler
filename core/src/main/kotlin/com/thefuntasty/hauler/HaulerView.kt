@@ -31,16 +31,13 @@ class HaulerView @JvmOverloads constructor(
 
     private var onDragDismissedListener: OnDragDismissedListener? = null
     private var onDragActivityListener: OnDragActivityListener? = null
-    private var systemChromeFader: SystemChromeFader? = null
+    private var systemBarsFader: SystemBarsFader? = null
 
     private var isDragEnabled = true
     private var dragUpEnabled = false
+    private var fadeSystemBars = true
 
     init {
-        (context as? Activity)?.also {
-            systemChromeFader = SystemChromeFader(it)
-        }
-
         getContext().withStyledAttributes(set = attrs, attrs = R.styleable.HaulerView) {
             val distanceAvailable = hasValue(R.styleable.HaulerView_dragDismissDistance)
             val dismissFractionAvailable = hasValue(R.styleable.HaulerView_dragDismissFraction)
@@ -56,8 +53,10 @@ class HaulerView @JvmOverloads constructor(
             dragDismissScale = getFloat(R.styleable.HaulerView_dragDismissScale, dragDismissScale)
             dragUpEnabled = getBoolean(R.styleable.HaulerView_dragUpEnabled, dragUpEnabled)
             dragElasticity = getFloat(R.styleable.HaulerView_dragElasticity, dragElasticity)
+            fadeSystemBars = getBoolean(R.styleable.HaulerView_fadeSystemBars, fadeSystemBars)
         }
 
+        setFadeSystemBars(fadeSystemBars)
         shouldScale = dragDismissScale != 1f
     }
 
@@ -154,12 +153,26 @@ class HaulerView @JvmOverloads constructor(
         this.onDragActivityListener = onDragActivityListener
     }
 
-
     /**
      * Set if drag gesture is enabled
      */
     fun setDragEnabled(isDragEnabled: Boolean) {
         this.isDragEnabled = isDragEnabled
+    }
+
+    /**
+     * Set if system bars should fade when dismiss is in progress
+     */
+    fun setFadeSystemBars(fadeSystemBars: Boolean) {
+        this.fadeSystemBars = fadeSystemBars
+
+        if (fadeSystemBars) {
+            (context as? Activity)?.also {
+                systemBarsFader = SystemBarsFader(it)
+            }
+        } else {
+            systemBarsFader = null
+        }
     }
 
     private fun dragScale(scroll: Int) {
@@ -217,12 +230,12 @@ class HaulerView @JvmOverloads constructor(
     }
 
     private fun dispatchDragCallback(elasticOffsetPixels: Float, rawOffset: Float) {
-        systemChromeFader?.onDrag(elasticOffsetPixels, rawOffset)
+        systemBarsFader?.onDrag(elasticOffsetPixels, rawOffset)
         onDragActivityListener?.onDrag(elasticOffsetPixels, rawOffset)
     }
 
     private fun dispatchDismissCallback(dragDirection: DragDirection) {
-        systemChromeFader?.onDismiss()
+        systemBarsFader?.onDismiss()
         onDragDismissedListener?.onDismissed(dragDirection)
     }
 }

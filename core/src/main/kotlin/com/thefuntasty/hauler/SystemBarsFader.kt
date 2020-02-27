@@ -3,7 +3,7 @@ package com.thefuntasty.hauler
 import android.app.Activity
 import android.graphics.Color
 
-internal class SystemChromeFader(private val activity: Activity) {
+internal class SystemBarsFader(private val activity: Activity) {
 
     private val statusBarAlpha: Int by lazy { Color.alpha(getStatusBarColor()) }
 
@@ -16,13 +16,13 @@ internal class SystemChromeFader(private val activity: Activity) {
         }
     }
 
-    private fun getStatusBarColor() = activity.window.statusBarColor
-
-    private fun getNewAlpha(rawOffset: Float) = ((1f - rawOffset) * statusBarAlpha).toInt()
-
     fun onDismiss() {
         // set transparent window bg and transparent navigation bar
         activity.window.decorView.setBackgroundColor(0)
         activity.window.navigationBarColor = ColorUtils.modifyAlpha(activity.window.navigationBarColor, 0)
     }
+
+    private fun getStatusBarColor() = activity.window.statusBarColor
+
+    private fun getNewAlpha(rawOffset: Float) = ((1f - rawOffset) * statusBarAlpha).toInt()
 }
