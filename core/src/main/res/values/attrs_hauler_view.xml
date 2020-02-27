@@ -6,6 +6,7 @@
         <attr name="dragDismissScale" format="float"/>
         <attr name="dragElasticity" format="float"/>
         <attr name="dragUpEnabled" format="boolean"/>
+        <attr name="fadeSystemBars" format="boolean" />
     </declare-styleable>
 
 </resources>
