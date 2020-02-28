@@ -7,3 +7,11 @@ fun HaulerView.setOnDragDismissedListener(onDragDismissedListener: (DragDirectio
         }
     })
 }
+
+fun HaulerView.setOnDragActivityListener(onDragActivityListener: (elasticOffsetPixels: Float, rawOffset: Float) -> Unit) {
+    this.setOnDragActivityListener(object : OnDragActivityListener {
+        override fun onDrag(elasticOffsetPixels: Float, rawOffset: Float) {
+            onDragActivityListener.invoke(elasticOffsetPixels, rawOffset)
+        }
+    })
+}

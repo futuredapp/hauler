@@ -30,6 +30,7 @@ class HaulerView @JvmOverloads constructor(
     private var mLastActionEvent: Int = 0
 
     private var onDragDismissedListener: OnDragDismissedListener? = null
+    private var onDragActivityListener: OnDragActivityListener? = null
     private var systemBarsFader: SystemBarsFader? = null
 
     private var isDragEnabled = true
@@ -145,6 +146,14 @@ class HaulerView @JvmOverloads constructor(
     }
 
     /**
+     * Set lambda reference to listener which is called when drag is in
+     * progress
+     */
+    fun setOnDragActivityListener(onDragActivityListener: OnDragActivityListener) {
+        this.onDragActivityListener = onDragActivityListener
+    }
+
+    /**
      * Set if drag gesture is enabled
      */
     fun setDragEnabled(isDragEnabled: Boolean) {
@@ -220,8 +229,10 @@ class HaulerView @JvmOverloads constructor(
         dispatchDragCallback(dragTo, Math.min(1f, Math.abs(totalDrag) / dragDismissDistance))
     }
 
-    private fun dispatchDragCallback(elasticOffsetPixels: Float, rawOffset: Float) =
+    private fun dispatchDragCallback(elasticOffsetPixels: Float, rawOffset: Float) {
         systemBarsFader?.onDrag(elasticOffsetPixels, rawOffset)
+        onDragActivityListener?.onDrag(elasticOffsetPixels, rawOffset)
+    }
 
     private fun dispatchDismissCallback(dragDirection: DragDirection) {
         systemBarsFader?.onDismiss()
