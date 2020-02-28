@@ -94,12 +94,12 @@ Attributes `dragDismissDistance` and `dragDismissFraction` are exclusive. Do not
 
 Download
 --------
-`module/build.gradle`:
+[![Download](https://api.bintray.com/packages/thefuntastyops/hauler/core/images/download.svg) ](https://bintray.com/thefuntastyops/hauler/core/_latestVersion)
 ```groovy
 dependencies {
-    implementation("com.thefuntasty.hauler:core:3.0.1")
+    implementation("com.thefuntasty.hauler:core:latestVersion")
 
     // optional dependency with set of Data Binding adapters
-    implementation("com.thefuntasty.hauler:core:databinding:3.0.1")
+    implementation("com.thefuntasty.hauler:core:databinding:latestVersion")
 }
 ```
