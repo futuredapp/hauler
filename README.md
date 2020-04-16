@@ -6,6 +6,7 @@
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Hauler-brightgreen.svg?style=flat )]( https://android-arsenal.com/details/1/7359 )
 ![Check Master](https://github.com/futuredapp/hauler/workflows/Check%20Master/badge.svg?branch=master)
+![License](https://img.shields.io/github/license/futuredapp/hauler?color=black)
 
 Hauler is an Android library containing custom layout which enables to easily create swipe to dismiss `Activity`.
 Implementation is based on code from project [Plaid](https://github.com/nickbutcher/plaid).
@@ -14,7 +15,6 @@ Implementation is based on code from project [Plaid](https://github.com/nickbutc
 
 # Installation
 
-[![Download](https://api.bintray.com/packages/thefuntastyops/hauler/core/images/download.svg) ](https://bintray.com/thefuntastyops/hauler/core/_latestVersion)
 ```groovy
 dependencies {
     implementation("com.thefuntasty.hauler:core:latestVersion")
@@ -26,10 +26,10 @@ dependencies {
 
 # Features
 
-Hauler library provides highly customizable `HaulerView` which provides swipe to dismiss functionality. 
+Hauler library comes with highly customizable `HaulerView` which provides swipe to dismiss functionality. 
 It also ships with `databinding` module which contains Binding Adapters for smoother experience with Android Data Binding implementation.
 
-# How to use
+# Usage
  
  Activity which is meant to be dismissed must contain `HaulerView` as a root view and `NestedScrollView` (or other `View` what supports nested scroll) 
  as its child. Make sure your `NestedScrollview`'s attribute `android:fillViewport` is set to `true` otherwise it might not behave as
@@ -106,3 +106,7 @@ There are few styleable attributes you might want to use to customize your `Haul
 | `app:fadeSystemBars` | boolean | true | Flag indicating if system bars (status & navigation) fades while dismiss is in progress |
 
 Attributes `dragDismissDistance` and `dragDismissFraction` are exclusive. Do not use them together.
+
+# License
+
+Hauler is available under the MIT license. See the [LICENSE file](LICENCE) for more information.
