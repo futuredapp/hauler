@@ -1,19 +1,35 @@
+![Title](images/Hauler.svg)
+
+# Hauler
+
 [![Download](https://api.bintray.com/packages/thefuntastyops/hauler/core/images/download.svg) ](https://bintray.com/thefuntastyops/hauler/core/_latestVersion)
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Hauler-brightgreen.svg?style=flat )]( https://android-arsenal.com/details/1/7359 )
 ![Check Master](https://github.com/futuredapp/hauler/workflows/Check%20Master/badge.svg?branch=master)
-![](https://raw.githubusercontent.com/thefuntasty/hauler/master/images/logo_stretch.png)
 
-Hauler
-======
-
-Hauler is a library containing custom layout which enables to easily create swipe to dismiss `Activity`.
+Hauler is an Android library containing custom layout which enables to easily create swipe to dismiss `Activity`.
 Implementation is based on code from project [Plaid](https://github.com/nickbutcher/plaid).
 
 ![Alt text](https://github.com/thefuntasty/hauler/blob/master/images/example.gif)
 
-How to use
-----------
+# Installation
+
+[![Download](https://api.bintray.com/packages/thefuntastyops/hauler/core/images/download.svg) ](https://bintray.com/thefuntastyops/hauler/core/_latestVersion)
+```groovy
+dependencies {
+    implementation("com.thefuntasty.hauler:core:latestVersion")
+
+    // optional dependency with set of Data Binding adapters
+    implementation("com.thefuntasty.hauler:core:databinding:latestVersion")
+}
+```
+
+# Features
+
+Hauler library provides highly customizable `HaulerView` which provides swipe to dismiss functionality. 
+It also ships with `databinding` module which contains Binding Adapters for smoother experience with Android Data Binding implementation.
+
+# How to use
  
  Activity which is meant to be dismissed must contain `HaulerView` as a root view and `NestedScrollView` (or other `View` what supports nested scroll) 
  as its child. Make sure your `NestedScrollview`'s attribute `android:fillViewport` is set to `true` otherwise it might not behave as
@@ -66,8 +82,7 @@ Set `onDragDismissListener` to react properly to user dismiss request. Example i
     }
 ```
 
-Customization
--------------
+## Customization
 
 There are few styleable attributes you might want to use to customize your `HaulerView`:
 
@@ -91,15 +106,3 @@ There are few styleable attributes you might want to use to customize your `Haul
 | `app:fadeSystemBars` | boolean | true | Flag indicating if system bars (status & navigation) fades while dismiss is in progress |
 
 Attributes `dragDismissDistance` and `dragDismissFraction` are exclusive. Do not use them together.
-
-Download
---------
-[![Download](https://api.bintray.com/packages/thefuntastyops/hauler/core/images/download.svg) ](https://bintray.com/thefuntastyops/hauler/core/_latestVersion)
-```groovy
-dependencies {
-    implementation("com.thefuntasty.hauler:core:latestVersion")
-
-    // optional dependency with set of Data Binding adapters
-    implementation("com.thefuntasty.hauler:core:databinding:latestVersion")
-}
-```
