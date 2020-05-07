@@ -1,4 +1,4 @@
-![Title](images/Hauler.svg)
+<img align="right" src="images/Hauler.svg">
 
 # Hauler
 
