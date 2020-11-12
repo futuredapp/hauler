@@ -58,6 +58,10 @@ subprojects {
     }
 }
 
+tasks {
+    register<com.thefuntasty.hauler.DependencyUpdates>("dependencyUpdates")
+}
+
 detekt {
     autoCorrect = false
     version = Versions.detekt

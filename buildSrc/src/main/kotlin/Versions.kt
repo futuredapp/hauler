@@ -12,6 +12,7 @@ object Versions {
     // kotlin
     const val kotlin = "1.4.32"
 
-    const val androidx = "1.1.0"
+    const val androidx = "1.2.0"
+    const val androidxKtx = "1.3.2"
     const val palette = "1.0.0"
 }
