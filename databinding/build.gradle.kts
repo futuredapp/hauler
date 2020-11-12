@@ -40,4 +40,3 @@ project.apply {
 }
 
 apply("../publish.script.gradle")
-

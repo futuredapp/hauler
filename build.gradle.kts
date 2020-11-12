@@ -48,13 +48,20 @@ subprojects {
         ignoreFailures.set(true)
         android.set(true)
         outputToConsole.set(true)
-        reporters.set(setOf(ReporterType.PLAIN, ReporterType.CHECKSTYLE))
+        reporters {
+            reporter(ReporterType.PLAIN)
+            reporter(ReporterType.CHECKSTYLE)
+        }
     }
+}
+
+tasks {
+    register<com.thefuntasty.hauler.DependencyUpdates>("dependencyUpdates")
 }
 
 detekt {
     version = Versions.detekt
     input = files("sample/src/main/kotlin", "library/src/main/kotlin")
-    filters = ".*/resources/.*,.*/build/.*"
     config = files("detekt.yml")
+    autoCorrect = false
 }
