@@ -8,21 +8,8 @@ buildscript {
     dependencies {
         classpath(Deps.gradlePlugin)
         classpath(kotlin(Deps.Kotlin.gradlePlugin, Versions.kotlin))
-        classpath(Deps.Plugins.bintray)
+        classpath(Deps.Plugins.mavenPublish)
         classpath(Deps.Plugins.dokka)
-    }
-
-    extra.apply {
-        set("bintrayRepo", ProjectSettings.Publish.bintrayRepo)
-        set("publishedGroupId", ProjectSettings.group)
-        set("siteUrl", ProjectSettings.Publish.siteUrl)
-        set("gitUrl", ProjectSettings.Publish.gitUrl)
-        set("developerId", ProjectSettings.Publish.developerId)
-        set("developerName", ProjectSettings.Publish.developerName)
-        set("developerEmail", ProjectSettings.Publish.developerEmail)
-        set("licenseName", ProjectSettings.Publish.licenseName)
-        set("licenseUrl", ProjectSettings.Publish.licenseUrl)
-        set("allLicenses", ProjectSettings.Publish.allLicenses)
     }
 }
 
@@ -48,13 +35,16 @@ subprojects {
         ignoreFailures.set(true)
         android.set(true)
         outputToConsole.set(true)
-        reporters.set(setOf(ReporterType.PLAIN, ReporterType.CHECKSTYLE))
+        reporters {
+            reporter(ReporterType.PLAIN)
+            reporter(ReporterType.CHECKSTYLE)
+        }
     }
 }
 
 detekt {
+    autoCorrect = false
     version = Versions.detekt
     input = files("sample/src/main/kotlin", "library/src/main/kotlin")
-    filters = ".*/resources/.*,.*/build/.*"
     config = files("detekt.yml")
 }

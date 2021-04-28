@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.config.KotlinCompilerVersion
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("com.vanniktech.maven.publish")
 }
 
 group = ProjectSettings.group
@@ -27,11 +28,3 @@ dependencies {
     implementation(Deps.AndroidX.palette)
     implementation(Deps.AndroidX.ktx)
 }
-
-project.apply {
-    extensions.add("artifact", ProjectSettings.Core.artifact)
-    extensions.add("libraryName", ProjectSettings.Core.artifact)
-    extensions.add("libraryDescription", ProjectSettings.Core.description)
-}
-
-apply("../publish.script.gradle")
