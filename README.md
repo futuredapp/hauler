@@ -17,10 +17,10 @@ Implementation is based on code from project [Plaid](https://github.com/nickbutc
 
 ```groovy
 dependencies {
-    implementation("com.thefuntasty.hauler:core:latestVersion")
+    implementation("app.futured.hauler:hauler:latestVersion")
 
     // optional dependency with set of Data Binding adapters
-    implementation("com.thefuntasty.hauler:core:databinding:latestVersion")
+    implementation("com.thefuntasty.hauler:databinding:latestVersion")
 }
 ```
 
@@ -36,7 +36,7 @@ It also ships with `databinding` module which contains Binding Adapters for smoo
  expected:
 
 ```xml
-<com.thefuntasty.hauler.HaulerView
+<app.futured.hauler.HaulerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/haulerView"
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@ It also ships with `databinding` module which contains Binding Adapters for smoo
             <!-- your layout-->
             
     </androidx.core.widget.NestedScrollView>
-</com.thefuntasty.hauler.HaulerView>           
+</app.futured.hauler.HaulerView>
 ```
 
 Secondly, define translucent floating Theme and assign it to the Activity you want to give dismiss ability:
@@ -87,7 +87,7 @@ Set `onDragDismissListener` to react properly to user dismiss request. Example i
 There are few styleable attributes you might want to use to customize your `HaulerView`:
 
  ```xml
-<com.thefuntasty.hauler.HaulerView
+<app.futured.hauler.HaulerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:dragDismissDistance="112dp"

@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context="app.futured.haulersample.MainActivity">
 
     <Button
             android:id="@+id/startCommonButton"
