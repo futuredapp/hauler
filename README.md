@@ -24,6 +24,20 @@ dependencies {
 }
 ```
 
+### Snapshot installation
+
+Add new maven repo to your top level gradle file.
+
+```groovy
+maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+```
+
+Snapshots are grouped based on major version, so for version 4.x.x use:
+
+```groovy
+implementation "app.futured.hauler:hauler:4.X.X-SNAPSHOT"
+```
+
 # Features
 
 Hauler library comes with highly customizable `HaulerView` which provides swipe to dismiss functionality. 
