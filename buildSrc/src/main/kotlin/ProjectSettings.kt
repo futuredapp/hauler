@@ -5,7 +5,7 @@ object ProjectSettings {
     const val group = "app.futured.hauler"
 
     /**
-     * 0.1.1-SNAPSHOT used only for local builds.
+     * 0.0.1-SNAPSHOT used only for local builds.
      * Snapshots will use version name from VERSION_NAME property of project gradle.properties file.
      * Releases will use version name from Github release. VERSION_NAME is overridden in release workflow file.
      */
