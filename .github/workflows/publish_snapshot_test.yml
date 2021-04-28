@@ -1,0 +1,28 @@
+name: Test Snapshot Publishing
+on:
+  push:
+    branches:
+      feature/4.x.x-maven-publish
+
+jobs:
+  master:
+    name: Snapshot Publish Test
+    runs-on: [ ubuntu-latest ]
+    env:
+      SLACK_CHANNEL: android
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Run unit tests
+        shell: bash
+        run: ./gradlew --continue build testRelease
+      - name: Build & publish snapshot
+        run: ./gradlew publish --no-daemon --no-parallel --stacktrace
+        env:
+          ORG_GRADLE_PROJECT_mavenCentralRepositoryUsername: ${{ secrets.MAVEN_CENTRAL_REPOSITORY_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralRepositoryPassword: ${{ secrets.MAVEN_CENTRAL_REPOSITORY_PASSWORD }}
+          ORG_GRADLE_PROJECT_SIGNING_PRIVATE_KEY: ${{ secrets.GPG_SIGNING_PRIVATE_KEY }}
+          ORG_GRADLE_PROJECT_SIGNING_PASSWORD: ${{ secrets.GPG_SIGNING_PASSWORD }}
