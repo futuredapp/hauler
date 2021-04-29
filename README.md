@@ -2,10 +2,10 @@
 
 # Hauler
 
-[![Download](https://api.bintray.com/packages/thefuntastyops/hauler/core/images/download.svg) ](https://bintray.com/thefuntastyops/hauler/core/_latestVersion)
+[![Maven Central](https://img.shields.io/maven-central/v/app.futured.hauler/hauler))]( https://search.maven.org/artifact/app.futured.hauler/hauler/ )
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Hauler-brightgreen.svg?style=flat )]( https://android-arsenal.com/details/1/7359 )
-![Check Master](https://github.com/futuredapp/hauler/workflows/Check%20Master/badge.svg?branch=master)
+![Publish Snapshot](https://github.com/futuredapp/hauler/actions/workflows/publish_snapshot.yml/badge.svg)
 ![License](https://img.shields.io/github/license/futuredapp/hauler?color=black)
 
 Hauler is an Android library containing custom layout which enables to easily create swipe to dismiss `Activity`.
