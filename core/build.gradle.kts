@@ -6,10 +6,8 @@ plugins {
     id("com.vanniktech.maven.publish")
 }
 
-group = ProjectSettings.group
-version = ProjectSettings.version
-
 android {
+
     compileSdkVersion(ProjectSettings.targetSdk)
 
     defaultConfig {
