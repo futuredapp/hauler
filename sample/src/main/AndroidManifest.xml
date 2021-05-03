@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.thefuntasty.haulersample">
+          package="app.futured.haulersample">
 
     <application
             android:allowBackup="false"
@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
-        <activity android:name="com.thefuntasty.haulersample.MainActivity">
+        <activity android:name="app.futured.haulersample.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -19,19 +19,19 @@
         </activity>
 
         <activity
-                android:name=".draggable.SimpleActivity"
+                android:name="app.futured.haulersample.draggable.SimpleActivity"
                 android:theme="@style/AppTheme.Draggable" />
 
         <activity
-                android:name=".draggable.advanced.AdvancedActivity"
+                android:name="app.futured.haulersample.draggable.advanced.AdvancedActivity"
                 android:theme="@style/AppTheme.Draggable" />
 
         <activity
-                android:name=".draggable.databinding.DatabindingActivity"
+                android:name="app.futured.haulersample.draggable.databinding.DatabindingActivity"
                 android:theme="@style/AppTheme.Draggable" />
 
         <activity
-                android:name=".draggable.SimpleJavaActivity"
+                android:name="app.futured.haulersample.draggable.SimpleJavaActivity"
                 android:theme="@style/AppTheme.Draggable" />
 
     </application>

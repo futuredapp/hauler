@@ -5,14 +5,14 @@
     <data>
         <variable
                 name="viewState"
-                type="com.thefuntasty.haulersample.draggable.databinding.DatabindingActivityState"/>
+                type="app.futured.haulersample.draggable.databinding.DatabindingActivityState"/>
 
         <variable
                 name="view"
-                type="com.thefuntasty.haulersample.draggable.databinding.DatabindingActivityView"/>
+                type="app.futured.haulersample.draggable.databinding.DatabindingActivityView"/>
     </data>
 
-    <com.thefuntasty.hauler.HaulerView
+    <app.futured.hauler.HaulerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -22,7 +22,7 @@
             app:isDragUpEnabled="@{true}"
             app:onDragDismissedListener="@{(dragDirection) -> view.onDragDismissed(dragDirection)}">
 
-        <com.thefuntasty.hauler.LockableNestedScrollView
+        <app.futured.hauler.LockableNestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fillViewport="true"
@@ -48,8 +48,8 @@
 
             </FrameLayout>
 
-        </com.thefuntasty.hauler.LockableNestedScrollView>
+        </app.futured.hauler.LockableNestedScrollView>
 
-    </com.thefuntasty.hauler.HaulerView>
+    </app.futured.hauler.HaulerView>
 
 </layout>

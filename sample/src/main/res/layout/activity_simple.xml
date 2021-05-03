@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.thefuntasty.hauler.HaulerView
+<app.futured.hauler.HaulerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".draggable.SimpleActivity"
+        tools:context="app.futured.haulersample.draggable.SimpleActivity"
         android:id="@+id/commonHaulerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,5 +27,5 @@
 
     </androidx.core.widget.NestedScrollView>
 
-</com.thefuntasty.hauler.HaulerView>
+</app.futured.hauler.HaulerView>
 

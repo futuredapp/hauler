@@ -2,10 +2,10 @@
 
 # Hauler
 
-[![Download](https://api.bintray.com/packages/thefuntastyops/hauler/core/images/download.svg) ](https://bintray.com/thefuntastyops/hauler/core/_latestVersion)
+[![Maven Central](https://img.shields.io/maven-central/v/app.futured.hauler/hauler))]( https://search.maven.org/artifact/app.futured.hauler/hauler/ )
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Hauler-brightgreen.svg?style=flat )]( https://android-arsenal.com/details/1/7359 )
-![Check Master](https://github.com/futuredapp/hauler/workflows/Check%20Master/badge.svg?branch=master)
+![Publish Snapshot](https://github.com/futuredapp/hauler/actions/workflows/publish_snapshot.yml/badge.svg)
 ![License](https://img.shields.io/github/license/futuredapp/hauler?color=black)
 
 Hauler is an Android library containing custom layout which enables to easily create swipe to dismiss `Activity`.
@@ -17,11 +17,25 @@ Implementation is based on code from project [Plaid](https://github.com/nickbutc
 
 ```groovy
 dependencies {
-    implementation("com.thefuntasty.hauler:core:latestVersion")
+    implementation("app.futured.hauler:hauler:latestVersion")
 
     // optional dependency with set of Data Binding adapters
-    implementation("com.thefuntasty.hauler:core:databinding:latestVersion")
+    implementation("com.thefuntasty.hauler:databinding:latestVersion")
 }
+```
+
+### Snapshot installation
+
+Add new maven repo to your top level gradle file.
+
+```groovy
+maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+```
+
+Snapshots are grouped based on major version, so for version 4.x.x use:
+
+```groovy
+implementation "app.futured.hauler:hauler:4.X.X-SNAPSHOT"
 ```
 
 # Features
@@ -36,7 +50,7 @@ It also ships with `databinding` module which contains Binding Adapters for smoo
  expected:
 
 ```xml
-<com.thefuntasty.hauler.HaulerView
+<app.futured.hauler.HaulerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/haulerView"
         android:layout_width="match_parent"
@@ -50,7 +64,7 @@ It also ships with `databinding` module which contains Binding Adapters for smoo
             <!-- your layout-->
             
     </androidx.core.widget.NestedScrollView>
-</com.thefuntasty.hauler.HaulerView>           
+</app.futured.hauler.HaulerView>
 ```
 
 Secondly, define translucent floating Theme and assign it to the Activity you want to give dismiss ability:
@@ -87,7 +101,7 @@ Set `onDragDismissListener` to react properly to user dismiss request. Example i
 There are few styleable attributes you might want to use to customize your `HaulerView`:
 
  ```xml
-<com.thefuntasty.hauler.HaulerView
+<app.futured.hauler.HaulerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:dragDismissDistance="112dp"
