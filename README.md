@@ -20,7 +20,7 @@ dependencies {
     implementation("app.futured.hauler:hauler:latestVersion")
 
     // optional dependency with set of Data Binding adapters
-    implementation("com.thefuntasty.hauler:databinding:latestVersion")
+    implementation("app.futured.hauler:databinding:latestVersion")
 }
 ```
 
