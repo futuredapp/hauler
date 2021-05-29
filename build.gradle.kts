@@ -40,6 +40,22 @@ subprojects {
             reporter(ReporterType.CHECKSTYLE)
         }
     }
+
+    plugins.whenPluginAdded {
+        if (this is SigningPlugin) {
+            extensions.findByType<SigningExtension>()?.apply {
+                val hasKey = project.hasProperty("SIGNING_PRIVATE_KEY")
+                val hasPassword = project.hasProperty("SIGNING_PASSWORD")
+
+                if (hasKey && hasPassword) {
+                    useInMemoryPgpKeys(
+                        project.properties["SIGNING_PRIVATE_KEY"].toString(),
+                        project.properties["SIGNING_PASSWORD"].toString()
+                    )
+                }
+            }
+        }
+    }
 }
 
 detekt {
