@@ -1,13 +1,9 @@
 name: Publish Release
 
-#on:
-#  release:
-#    types: [published]
-
 on:
   push:
     branches:
-      [fix/signing]
+      fix/signing
 
 jobs:
   release:
@@ -23,7 +19,6 @@ jobs:
         shell: bash
         run: ./gradlew --continue build testRelease
       - name: Publish release
-        #run: ./gradlew publish --no-daemon --no-parallel --stacktrace -PVERSION_NAME=${{github.event.release.name}}
         run: ./gradlew publish --no-daemon --no-parallel --stacktrace -PVERSION_NAME=4.0.0-DEVTEST
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_REPOSITORY_USERNAME }}
