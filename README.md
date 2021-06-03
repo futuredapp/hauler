@@ -2,7 +2,7 @@
 
 # Hauler
 
-[![Maven Central](https://img.shields.io/maven-central/v/app.futured.hauler/hauler))]( https://search.maven.org/artifact/app.futured.hauler/hauler/ )
+[![Maven Central](https://img.shields.io/maven-central/v/app.futured.hauler/hauler)](https://search.maven.org/artifact/app.futured.hauler/hauler/)
 ![minSdk:21](https://img.shields.io/badge/minSDK-21-brightgreen.svg)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Hauler-brightgreen.svg?style=flat )]( https://android-arsenal.com/details/1/7359 )
 ![Publish Snapshot](https://github.com/futuredapp/hauler/actions/workflows/publish_snapshot.yml/badge.svg)
