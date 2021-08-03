@@ -29,7 +29,6 @@ allprojects {
 
 subprojects {
     apply(plugin = Deps.Plugins.ktlint)
-
     ktlint {
         version.set(Versions.ktlintExtension)
         ignoreFailures.set(true)
@@ -56,10 +55,6 @@ subprojects {
             }
         }
     }
-}
-
-tasks {
-    register<com.thefuntasty.hauler.DependencyUpdates>("dependencyUpdates")
 }
 
 detekt {
