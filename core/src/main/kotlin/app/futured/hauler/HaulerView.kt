@@ -77,7 +77,7 @@ class HaulerView @JvmOverloads constructor(
     }
 
     override fun onNestedScroll(target: View, dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int) {
-        if (isDragEnabled.not()) {
+        if (isDragEnabled.not() || (dragUpEnabled.not() && dyUnconsumed > 0)) {
             return super.onNestedScroll(target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed)
         }
         dragScale(dyUnconsumed)
