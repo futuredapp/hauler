@@ -29,7 +29,6 @@ allprojects {
 
 subprojects {
     apply(plugin = Deps.Plugins.ktlint)
-
     ktlint {
         version.set(Versions.ktlintExtension)
         ignoreFailures.set(true)
