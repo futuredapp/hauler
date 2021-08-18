@@ -32,10 +32,10 @@ Add new maven repo to your top level gradle file.
 maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 ```
 
-Snapshots are grouped based on major version, so for version 4.x.x use:
+Snapshots are grouped based on major version, so for version 5.x.x use:
 
 ```groovy
-implementation "app.futured.hauler:hauler:4.X.X-SNAPSHOT"
+implementation "app.futured.hauler:hauler:5.X.X-SNAPSHOT"
 ```
 
 # Features
