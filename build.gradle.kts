@@ -27,6 +27,11 @@ allprojects {
     }
 }
 
+tasks {
+    register<app.futured.hauler.DependencyUpdates>("dependencyUpdates")
+}
+
+
 subprojects {
     apply(plugin = Deps.Plugins.ktlint)
     ktlint {
