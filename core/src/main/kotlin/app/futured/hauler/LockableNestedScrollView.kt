@@ -25,5 +25,5 @@ class LockableNestedScrollView @JvmOverloads constructor(
             super.onTouchEvent(ev)
     }
 
-    override fun onInterceptTouchEvent(ev: MotionEvent?) = isScrollable && super.onInterceptTouchEvent(ev)
+    override fun onInterceptTouchEvent(ev: MotionEvent) = isScrollable && super.onInterceptTouchEvent(ev)
 }

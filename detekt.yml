@@ -78,9 +78,6 @@ exceptions:
   TooGenericExceptionThrown:
     active: true
 
-formatting:
-  active: false
-
 naming:
   active: true
   ClassNaming:
